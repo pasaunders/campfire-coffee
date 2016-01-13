@@ -20,13 +20,13 @@ function Kiosk(locationName, minCustomers, maxCustomers, cupsCustomer, poundsCus
   Kiosk.prototype.hourCustomers = function(){
     for (var i = 0; i < hours.length; i++) {
       console.log("inside for loop at hourCustomers");
-      this.hourlyCustomers.push(Math.floor(Math.random() * (this.maxHr - this.minHr + 1) + this.minHr ));
+      this.hourlyCustomers.push(Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers ));
       console.log(this.hourlyCustomers);
     };
   };
   Kiosk.prototype.calculateHourlyCups = function(){
     for (var i = 0; i < hours.length; i++) {
-      var cups = Math.floor(cupsCustomer * hourlyCustomers[i]);
+      var cups = Math.floor(this.cupsCustomer * this.hourlyCustomers[i]);
       console.log(cups);
       this.hourlyCups.push(parseFloat(cups.toFixed(i)));
       this.dailyCups += cups;
@@ -35,7 +35,7 @@ function Kiosk(locationName, minCustomers, maxCustomers, cupsCustomer, poundsCus
   };
   Kiosk.prototype.calculateHourlyBeans = function(){
     for (var i = 0; i < hours.length; i++) {
-      var beans = Math.floor(poundsCustomer * hourlyCustomers[i]);
+      var beans = Math.floor(this.poundsCustomer * this.hourlyCustomers[i]);
       console.log(beans);
       this.hourlyBeansLbs.push(parseFloat(beans.toFixed(1)));
       this.totalDailyBeans += beans
@@ -49,6 +49,13 @@ var publicLibrary = new Kiosk('Seattle Public Library', 49, 75, 2.6, 0.2);
 var southLake = new Kiosk('South Lake Union', 35, 88, 1.3, 3.7);
 var seaTac = new Kiosk('Sea-Tac Airport', 68, 124, 1.1, 2.7);
 var websiteSales = new Kiosk('Website Sales', 3, 6, 0, 6.7);
+var instantiated = [pikePlace, capitolHill, publicLibrary, southLake, seaTac, websiteSales]
+
+for (var i = 0; i < shops.length; i++) {
+  instantiated[i].hourCustomers();
+  instantiated[i].calculateHourlyCups();
+  instantiated[i].calculateHourlyBeans();
+}
 
 function renderTable(){
   var sectEl = document.getElementById('test'); // ???
@@ -155,51 +162,3 @@ function renderTable(){
 }
 
 renderTable();
-
-//console.log(pikePlace.hourCustomers);
-
-/*  this.render = function(){
-    this.hourCustomers
-    this.calculateHourlyCups
-    this.calculateHourlyBeans
-
-    function buildTable(){
-      //start building a table
-      var tableElement = document.createElement('table');
-      //create first row
-      var tableRowElement1 = document.createElement('tr');
-      //create a blank header element to space the top row of the table right
-      var tableHeaderElement1 = document.createElement('th');
-      tableHeaderElement1.textContent = '';
-      tableRowElement1.appendChild(tableHeaderElement1)
-      // loop which populates the top row of the table with hour entries
-      for (var i = 0; i < hours.length; i++) {
-        var tableHeaderElement2 = document.createElement('th');
-        tableHeaderElement2.textContent = hours[i];
-      //attach each iteration of the loop to the top row of the table
-        tableRowElement1.appendChild(tableHeaderElement2);
-      }
-      //close the first table row
-      tableElement.appendChild(tableRowElement1);
-      //open a second row
-      var tableRowElement2 = document.createElement('th');
-      //create header for second row, give it location info
-      var tableHeaderElement3 = document.createElement('th');
-      tableHeaderElement3.textContent = location[1];
-      //attach location info header to the second row
-      tableRowElement2.appendChild(tableHeaderElement3);
-      for (var i = 0; i < hours.length; i++) {
-        var tableDataElement1 = document.createElement('td');
-        tableDataElement1.textContent = ((hourlyCups[i] / 20) + hourlyBeansLbs[i]);
-        tableRowElement2.appendChild(tableDataElement1);
-      }
-    }
-
-
-  };*/
-
-
-
-/*for (var i = 0; i < location.length; i++) {           //is this good?
-  //location[i].render();
-}*/
