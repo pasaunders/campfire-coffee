@@ -161,4 +161,5 @@ function renderTable(){
   sectEl.appendChild(tableEl); // attach the table to the html doc
 }
 
+
 renderTable();
