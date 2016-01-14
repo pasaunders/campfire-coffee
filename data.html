@@ -5,6 +5,31 @@
     <title>Campfire Coffee Business Data</title>
   </head>
   <body>
+
+    <form id="kioskForm">
+      <fieldset>
+        <legend>New Kiosk</legend>
+
+        <label for="name">Location Name: </label>
+        <input name="name" type="text">
+
+        <label for="minCustomers">Minimum Customers:  </label>
+        <input name="minCustomers" type="number">
+
+        <labelfor="maxCustomers">Maximum Customers: </label>
+        <input name="maxCustomers" type="number">
+
+        <label for="cupsCustomer" >Average cups per customer: </label>
+        <input name="cupsCustomer" type="number">
+
+        <label for="poundsCustomer">Average pounds per customer: </label>
+        <input name="poundsCustomer" type="number">
+
+        <button id="enter" type="submit">Submit</button>
+
+      </fieldset>
+    </form>
+
     <section id='test'></section>
     <script src='js/app.js'></script>
   </body>
