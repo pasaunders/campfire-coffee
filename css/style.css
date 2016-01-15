@@ -1,9 +1,7 @@
 body{
   background-color: #F3B06C;
 }
-header {
 
-}
 nav {
   background-color: #5464A5;
 }
@@ -14,7 +12,7 @@ img {
   width: 95%;
 }
 .dataList {
-  font-style: serif;
+  font-family: serif;
   font-size: 12px;
 }
 .brown {
@@ -35,4 +33,11 @@ nav a {
   border-style: solid;
   border-color: black;
   border-collapse: collapse;
+  border-radius: 2px;
+}
+.bossTable th {
+  border-style: solid;
+  border-color: black;
+  border-collapse: collapse;
+  border-radius: 2px;
 }
