@@ -58,7 +58,7 @@ for (var i = 0; i < shops.length; i++) {
 }
 
 function renderTable(){
-  var sectEl = document.getElementById('test'); // ???
+  var sectEl = document.getElementById('custoermsPerHourTable'); // ???
   var tableEl = document.createElement('table'); //table element
   var rowEl1 = document.createElement('tr'); //first row
 
@@ -87,7 +87,7 @@ function renderTable(){
   //loop through the first shop
   for (var i = 0; i < hours.length; i++) {
     var shopOneStats = document.createElement('td'); //this is table data
-    shopOneStats.textContent = ((pikePlace.hourlyCups[i] / 20) + pikePlace.hourlyBeansLbs[i]) + 'lbs Beans';
+    shopOneStats.textContent = (pikePlace.hourlyCustomers[i]) + ' Customers';
     rowEl2.appendChild(shopOneStats);
   }
   tableEl.appendChild(rowEl2); // attach row2 to the table
@@ -100,7 +100,7 @@ function renderTable(){
   //loop through the second shop
   for (var i = 0; i < hours.length; i++) {
     var shopTwoStats = document.createElement('td');
-    shopTwoStats.textContent = ((capitolHill.hourlyCups[i] / 20) + capitolHill.hourlyBeansLbs[i]) + 'lbs Beans';
+    shopTwoStats.textContent = (capitolHill.hourlyCustomers[i]) + ' Customers';
     rowEl3.appendChild(shopTwoStats);
   }
   tableEl.appendChild(rowEl3);//attach row 3 to table
@@ -113,7 +113,7 @@ function renderTable(){
   //loop through the third shop
   for (var i = 0; i < hours.length; i++) {
     var shopThreeStats = document.createElement('td');
-    shopThreeStats.textContent = ((publicLibrary.hourlyCups[i] / 20) + publicLibrary.hourlyBeansLbs[i]) + 'lbs Beans';
+    shopThreeStats.textContent = (publicLibrary.hourlyCustomers[i]) + ' Customers';
     rowEl4.appendChild(shopThreeStats);
   }
   tableEl.appendChild(rowEl4);
@@ -126,7 +126,7 @@ function renderTable(){
   //loop through the fourth shop
   for (var i = 0; i < hours.length; i++) {
     var shopFourStats = document.createElement('td');
-    shopFourStats.textContent = ((southLake.hourlyCups[i] / 20) + southLake.hourlyBeansLbs[i]) + 'lbs Beans';
+    shopFourStats.textContent = (southLake.hourlyCustomers[i]) + ' Customers';
     rowEl5.appendChild(shopFourStats);
   }
   tableEl.appendChild(rowEl5);
@@ -140,7 +140,7 @@ function renderTable(){
     //loop through the fifth shop
     for (var i = 0; i < hours.length; i++) {
       var shopFiveStats = document.createElement('td');
-      shopFiveStats.textContent = ((seaTac.hourlyCups[i] / 20) + seaTac.hourlyBeansLbs[i]) + 'lbs Beans';
+      shopFiveStats.textContent = (seaTac.hourlyCustomers[i]) + ' Customers';
       rowEl6.appendChild(shopFiveStats);
     }
     tableEl.appendChild(rowEl6);
@@ -153,13 +153,27 @@ function renderTable(){
     //loop through the sixth shop
     for (var i = 0; i < hours.length; i++) {
       var shopSixStats = document.createElement('td');
-      shopSixStats.textContent = ((websiteSales.hourlyCups[i] / 20) + websiteSales.hourlyBeansLbs[i]) + 'lbs Beans';
+      shopSixStats.textContent = (websiteSales.hourlyCustomers[i]) + ' Customers';
       rowEl7.appendChild(shopSixStats);
     }
     tableEl.appendChild(rowEl7);
 
   sectEl.appendChild(tableEl); // attach the table to the html doc
 }
+
+var kioskForm = document.getElementById('kioskForm')
+
+function addKiosk (event){
+  console.log(event);
+  event.preventDefault();
+
+  //if to kick an error if they leave something blank
+  if (!event.target.KioskName.value || !event.target.minCustomers.value || !event.target.maxCustomers.value || !event.target.cupsCustomer.value || !event.target.poundsCustomer.value) {
+    return alert('Fields cannot be empty!');
+  }
+  //code to properly add the form data to the table. This requires significant java refactoring.
+}
+kioskForm.addEventListner('submit', addKiosk);
 
 
 renderTable();
