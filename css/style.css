@@ -28,6 +28,7 @@ nav a {
   border-style: solid;
   border-color: black;
   border-radius: 10px;
+  border-collapse: collapse;
 }
 .bossTable td {
   border-style: solid;
