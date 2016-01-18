@@ -1,6 +1,6 @@
-body{
+/*body{
   background-color: #F3B06C;
-}
+}*/
 
 nav {
   background-color: #5464A5;
@@ -10,6 +10,12 @@ nav ul li {
 }
 img {
   width: 95%;
+}
+.slogan{
+  font-family: 'Lobster', cursive;
+}
+.container{
+  font-family: 'Noto Serif', serif;
 }
 .dataList {
   font-family: serif;
