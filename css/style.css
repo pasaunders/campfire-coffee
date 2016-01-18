@@ -1,9 +1,7 @@
-body{
+/*body{
   background-color: #F3B06C;
-}
-header {
+}*/
 
-}
 nav {
   background-color: #5464A5;
 }
@@ -13,8 +11,14 @@ nav ul li {
 img {
   width: 95%;
 }
+.slogan{
+  font-family: 'Lobster', cursive;
+}
+.container{
+  font-family: 'Noto Serif', serif;
+}
 .dataList {
-  font-style: serif;
+  font-family: serif;
   font-size: 12px;
 }
 .brown {
@@ -30,9 +34,17 @@ nav a {
   border-style: solid;
   border-color: black;
   border-radius: 10px;
+  border-collapse: collapse;
 }
 .bossTable td {
   border-style: solid;
   border-color: black;
   border-collapse: collapse;
+  border-radius: 2px;
+}
+.bossTable th {
+  border-style: solid;
+  border-color: black;
+  border-collapse: collapse;
+  border-radius: 2px;
 }
